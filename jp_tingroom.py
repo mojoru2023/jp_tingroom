@@ -73,27 +73,38 @@ def read_xlrd(excelFile):
 # xlsx---list_url----单页url
 def get_allURL():
     lpath = os.getcwd()
-    excelFile = '{0}/urls.xlsx'.format(lpath)
+    excelFile = '{0}\\urls.xlsx'.format(lpath)
     full_items = read_xlrd(excelFile=excelFile)
     for item in full_items:
-        for num in range(1,25):
+        for num in range(1,4):
             f_url = item[0]+'list_{0}.html'.format(num)
             BIG_URL.append(f_url)
 
 
-
+'<h2>日语常用语180句——23</h2>'
 
 def getOneText(url):
+    title =[]
     html = call_page(url)
     patt = re.compile('<title>(.*?)_.*?</title>',re.S)
-    title = re.findall(patt,html)
+    title1 = re.findall(patt,html)
 
     selector = etree.HTML(html)
+    title2 =selector.xpath('/html/body/div[4]/div[3]/div[1]/div[2]/div[1]/h2/text()')
+    if len(title1) ==0:
+        title = title2
+    else:
+        title=title1
 
+    
     content1 =selector.xpath('//*[@id="article"]/div/text()')
     content2 =selector.xpath('//*[@id="article"]/p/text()')
     f_con = []
-    if len(content1)==0:
+    if len(content1) !=0 and len(content2)!=0 and len(content1)>len(content2):
+        f_con = content1
+    elif len(content1) !=0 and len(content2)!=0 and  len(content1)< len(content2):
+        f_con = content2
+    elif len(content1)==0:
         f_con = content2
     elif len(content2) == 0:
         f_con = content1
@@ -124,7 +135,7 @@ if __name__ == '__main__':
             print(onepage)
             html = call_page(onepage)
             selector = etree.HTML(html)
-            secondLast = selector.xpath('/html/body/div[4]/div[3]/div[1]/div[2]/ul/li/a/@href')
+            secondLast = selector.xpath('/html/body/div/div/div[1]/div/ul/li/a/@href')
             for item in secondLast:
                 fff_l.append(item)
 

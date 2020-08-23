@@ -1,0 +1,37 @@
+qǐng tián hǎi guān shēn bào biǎo gé。,
+Please fill out the customs declaration form.,
+この税関申告用紙に記入してください。,
+Number,
+71,
+nǐ de lǚ xíng mù dì shì shén me？,
+What is the purpose of your visit?,
+あなたの旅行目的は何ですか。,
+Number,
+72,
+wǒ shì lái guān guāng de。,
+I am here on a tourist visa.,
+観光です。,
+Number,
+73,
+wǒ shì lái shāng wù kǎo chá de。,
+I am here on a business trip.,
+私はビジネスで来ました。,
+Number,
+74,
+wǒ shì lái tàn qīn de。,
+I am visiting relatives.,
+親戚を訪ねます。,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
+
+,
